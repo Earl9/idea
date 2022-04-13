@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wild.mapper.master.CardMapper">
+    <resultMap type="com.wild.entity.Card" id="cardMap">
+        <id column="card_id" property="cardId"/>
+        <result column="user_id" property="userId"/>
+        <result column="card_name" property="cardName"/>
+        <result column="card_num" property="cardNum"/>
+        <result column="del" property="del"/>
+        <result column="create_time" property="createTime"/>
+
+    </resultMap>
+
+    <select id="selectById" resultMap="cardMap">
+        SELECT
+            card_id,
+            card_name,
+            user_id,
+            card_num,
+            del,
+            create_time
+        FROM
+            t_card
+        where
+            del = 0
+        and
+            user_id = #{userId}
+    </select>
+
+</mapper>
+
+
