@@ -21,6 +21,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/templates/**.css").addResourceLocations("classpath:/templates/");
         //其他静态资源
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/upload");
+        registry.addResourceHandler("file/**").addResourceLocations("file/");
         //swagger增加url映射
         registry.addResourceHandler("swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");

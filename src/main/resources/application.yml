@@ -18,9 +18,8 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-      static-path-pattern: /upload/**
-  resources:
-    static-locations: classpath:/static/
+#      static-path-pattern: /upload/**
+      static-path-pattern: file/**
   servlet:
     multipart:
       max-file-size: 100MB
@@ -28,6 +27,9 @@ spring:
   http:
     multipart:
       enabled: true
+  web:
+    resources:
+      static-locations: classpath:/static/,file/
 
 mybatis:
   configuration:

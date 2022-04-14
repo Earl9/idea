@@ -109,7 +109,7 @@ public class UserServiceImpl implements UserService {
             }
         }
         String ipPort = FileUtil.getServerIPPort(request);
-        String link = ipPort+"/upload/"+name;
+        String link = ipPort+"/"+path+name;
         return link;
     }
 
@@ -212,9 +212,24 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> distinctList() {
         List<User> list = userMapper.list();
-        List<User> distinctUser = list.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(
+
+        List<User> distinctUser = new ArrayList<>();
+        //方法1
+        distinctUser = list.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(
                 () -> new TreeSet<>(Comparator.comparing(
                         o -> o.getUserName() + ";" + o.getPassword()))), ArrayList::new));
+        //方法2
+        ArrayList<String> strings = new ArrayList<>();
+        List<User> finalDistinctUser = distinctUser;
+        list.forEach(x->{
+            String userName = x.getUserName();
+            String password = x.getPassword();
+            String s = userName + password;
+            if (!strings.contains(s)){
+                strings.add(s);
+                finalDistinctUser.add(x);
+            }
+        });
         return distinctUser;
     }
 
