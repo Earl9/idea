@@ -175,7 +175,7 @@ public class UserServiceImpl implements UserService {
             list.stream().forEach(x->{
                 UserExcelVo userExcelVo = new UserExcelVo();
                 userExcelVo.setUserName(x.getUserName());
-                userExcelVo.setPassword(x.getPassword());
+                userExcelVo.setPassword(x.getPassWord());
                 userExcelVo.setPhone(x.getPhone());
                 userExcelVo.setDel(x.getDel().equals(0) ? "正常" : "禁用");
                 userExcelVo.setCreateTime(x.getCreateTime());
@@ -217,13 +217,13 @@ public class UserServiceImpl implements UserService {
         //方法1
         distinctUser = list.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(
                 () -> new TreeSet<>(Comparator.comparing(
-                        o -> o.getUserName() + ";" + o.getPassword()))), ArrayList::new));
+                        o -> o.getUserName() + ";" + o.getPassWord()))), ArrayList::new));
         //方法2
         ArrayList<String> strings = new ArrayList<>();
         List<User> finalDistinctUser = distinctUser;
         list.forEach(x->{
             String userName = x.getUserName();
-            String password = x.getPassword();
+            String password = x.getPassWord();
             String s = userName + password;
             if (!strings.contains(s)){
                 strings.add(s);

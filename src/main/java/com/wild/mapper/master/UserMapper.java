@@ -26,4 +26,7 @@ public interface UserMapper {
     List<User> list(Integer pageNum, Integer pageSize);
 
     List<User> listAll();
+
+    String queryPassWordByUserName(@Param("userName") String userName);
+
 }

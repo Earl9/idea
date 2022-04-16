@@ -75,7 +75,7 @@ public class UploadDataListener implements ReadListener<UserExcelVo> {
             User user = new User();
             user.setUserId(new GenerateUUID().getUuid());
             user.setUserName(x.getUserName());
-            user.setPassword(x.getPassword());
+            user.setPassWord(x.getPassword());
             user.setPhone(x.getPhone());
             user.setDel(x.getDel().equals("正常") ? 0 : 1);
             user.setCreateTime(x.getCreateTime());

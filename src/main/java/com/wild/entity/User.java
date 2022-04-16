@@ -24,7 +24,7 @@ public class User implements Serializable {
     private String userName;
 
     @ApiModelProperty(value="密码",name="password", required = true)
-    private String password;
+    private String passWord;
 
     @ApiModelProperty(value="手机号",name="phone", required = true)
     private String phone;

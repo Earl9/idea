@@ -5,7 +5,7 @@
     <resultMap type="com.wild.entity.User" id="userMap">
         <id column="user_id" jdbcType="VARCHAR" property="userId"/>
         <result column="user_name" jdbcType="VARCHAR" property="userName"/>
-        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="password" jdbcType="VARCHAR" property="passWord"/>
         <result column="phone" jdbcType="VARCHAR" property="phone"/>
         <result column="del" jdbcType="TINYINT" property="del"/>
         <result column="create_time" jdbcType="TIMESTAMP"  property="createTime"/>
@@ -99,6 +99,14 @@
             create_time
         FROM
             t_user
+    </select>
+    <select id="queryPassWordByUserName" resultType="java.lang.String">
+        SELECT
+            password
+        FROM
+            t_user
+        WHERE
+            user_name = #{userName}
     </select>
 
 </mapper>
