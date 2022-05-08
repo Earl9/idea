@@ -3,7 +3,9 @@ package com.wild.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
@@ -14,6 +16,8 @@ import java.util.List;
  * @author Administrator
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @ApiModel(value="user对象",description="用户对象")
 public class User implements Serializable {
 

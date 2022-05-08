@@ -10,8 +10,8 @@
         <el-table-column label="创建时间" prop="createTime" width="120"></el-table-column>
         <el-table-column fixed="right" label="操作" width="120">
         <template #default>
-          <el-button type="text" size="small" @click="handleClick">查看卡包</el-button>
-          <el-button type="text" size="small">删除</el-button>
+          <el-button type="text" size="small" @click="queryCardById">查看卡包</el-button>
+          <el-button type="text" size="small"  @click="deleteUser">删除</el-button>
         </template>
     </el-table-column>
      </el-table>
@@ -24,8 +24,9 @@ export default {
   data() {
     return {
       parm: {
-        pageSize:"10",
-        pageNum:"1"
+        pageSize:"6",
+        pageNum:"1",
+        userId:"2a43e3ccf02249718816a4637b867cbb"
         },
       userList: [], // 用户列表
     }
@@ -43,7 +44,19 @@ export default {
       console.log(res)
       // if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
       this.userList = res.items
-    }
+    },
+    async deleteUser() {
+      const queryId = new FormData();
+      queryId.append('userId', this.parm.userId);
+      const { data: res } = await this.$http.post('/user/delete',queryId);
+      console.log(res)
+    },
+    async queryCardById() {
+      const { data: res } = await this.$http.get('/user/queryById', {
+        userId: this.parm.userId
+        });
+      console.log(res)
+    },
   }
 }
 </script>

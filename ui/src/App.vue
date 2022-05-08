@@ -5,15 +5,17 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
+    <img alt="Vue logo" class="logo" src="@/assets/logo.webp" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="hello!" />
 
       <nav>
         <!-- <RouterLink to="/">home</RouterLink> -->
         <RouterLink to="/">login</RouterLink>
         <RouterLink to="/management">management</RouterLink>
+        <RouterLink to="/register">register</RouterLink>
       </nav>
     </div>
   </header>

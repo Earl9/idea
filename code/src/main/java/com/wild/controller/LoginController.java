@@ -30,5 +30,15 @@ public class LoginController {
             return new ResultMsg(400,msg,null);
         }
     }
+    @ApiOperation("注册")
+    @PostMapping("/register")
+    public ResultMsg register(@RequestBody User user) {
+        String msg = loginService.register(user);
+        if ("error".equals(msg)){
+            return new ResultMsg(200,msg,null);
+        }else {
+            return new ResultMsg(400,msg,null);
+        }
+    }
 
 }

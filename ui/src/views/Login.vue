@@ -1,8 +1,5 @@
 
 <template>
-  <!-- <div class="login h-screen w-screen flex justify-center items-center bg-gray-100">
-    <div class="login-wrapper w-full sm:w-80 p-4 bg-white shadow-md rounded"> -->
-      <!-- <div class="title font-bold text-lg border-b border-gray-200 pb-1 mb-2">系统登录</div> -->
       <el-card>
         <template #header>
           <span style="center">
@@ -15,20 +12,16 @@
             <el-input placeholder="用户名" v-model:model-value="loginForm.userName" class="w-50 m-2" size="large"/>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input show-password placeholder="密码" type="password" v-model:model-value="loginForm.passWord " size="large" />
+            <el-input show-password placeholder="密码" type="password"  v-model:model-value="loginForm.passWord " size="large" />
           </el-form-item>
           <el-form-item>
-            <!--
-<button type="submit"></button>
--->
-            <el-button class="w-full" type="primary" @click="login">登录</el-button>
-            <el-button class="w-full" type="primary" @click="register">注册</el-button>
+            <el-button  class="w-full" size="50" type="primary" @click="login" round>登录</el-button>
+            <!-- <el-button class="w-full" type="primary" @click="register" round>注册</el-button> -->
+            <el-link type="primary" class="w-full" @click="register">注册</el-link>
           </el-form-item>
         </el-form>
       </div>
       </el-card>
-    <!-- </div>
-  </div> -->
 </template>
 
 <script >
@@ -77,7 +70,7 @@
           })
         },
         register () {
-          this.$router.replace({path: '/management'})
+          this.$router.replace({path: '/register'})
       }
       
     }

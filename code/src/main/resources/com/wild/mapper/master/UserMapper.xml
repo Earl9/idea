@@ -32,7 +32,7 @@
         VALUES
             (#{user.userId},
             #{user.userName},
-            #{user.password},
+            #{user.passWord},
             #{user.phone},
             0,now())
     </insert>
@@ -73,6 +73,7 @@
             t_user
         where
             del = 0
+        order by create_time asc
     </select>
     <select id="selectById" resultMap="userMap">
         SELECT

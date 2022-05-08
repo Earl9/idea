@@ -5,4 +5,6 @@ import com.wild.entity.User;
 
 public interface LoginService {
     String login(User user);
+
+    String register(User user);
 }
